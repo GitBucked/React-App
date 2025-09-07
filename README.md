@@ -31,8 +31,8 @@ npm run dev
 
 **vite.config.ts**
 ```ts
-plugins: [react(), tailwindcss()],
-resolve: { alias: { '@': resolve(__dirname, 'src') } }
+plugins: [react(), 
+    tailwindcss()],
 ```
 
 **src/index.css**
@@ -43,10 +43,11 @@ resolve: { alias: { '@': resolve(__dirname, 'src') } }
 
 **package.json**
 ```jsonc
-"scripts": { "prepare": "husky" },
-"lint-staged": {
-  "*.{ts,tsx,js,jsx}": ["eslint --fix", "prettier -w"],
-  "*.{css,md,json}": ["prettier -w"]
+lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier -w"
+    ]
 }
 ```
 
