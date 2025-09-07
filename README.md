@@ -4,9 +4,9 @@ Instant starter focused on **speed and good defaults**.
 
 ## 🧩 Requirements
 
-Node ≥ 18, npm ≥ 9
-Git (for Husky hooks to run)
-VS Code extensions: Prettier, ESLint, Tailwind CSS (auto-prompted)
+-Node ≥ 18, npm ≥ 9
+-Git (for Husky hooks to run)
+-VS Code extensions: Prettier, ESLint, Tailwind CSS (auto-prompted)
 
 ## 🧰 Stack
 Vite • React • TypeScript • Tailwind (via `@tailwindcss/vite`) • ESLint • Prettier • Husky + lint-staged • VS Code settings • `@` path alias
