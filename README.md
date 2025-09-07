@@ -43,12 +43,16 @@ plugins: [react(),
 
 **package.json**
 ```jsonc
-lint-staged": {
+},
+  "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "eslint --fix",
       "prettier -w"
+    ],
+    "*.{css,md,json}": [
+      "prettier -w"
     ]
-}
+  }
 ```
 
 **.husky/pre-commit**
