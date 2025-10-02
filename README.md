@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# 🚀 Vite + React + TypeScript + Tailwind Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Instant starter focused on **speed and good defaults**.
 
-Currently, two official plugins are available:
+## 🧩 Requirements
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node ≥ 18, npm ≥ 9
+- Git (for Husky hooks to run)
+- VS Code extensions: Prettier, ESLint, Tailwind CSS (auto-prompted)
 
-## Expanding the ESLint configuration
+## 🧰 Stack
+Vite • React • TypeScript • Tailwind (via `@tailwindcss/vite`) • ESLint • Prettier • Husky + lint-staged • VS Code settings • `@` path alias
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ What we added (at a glance)
+- 🔧 **Tailwind via Vite plugin** – simple `@import "tailwindcss";` entry.
+- 🎨 **Design tokens & utilities** – example `.max-container`, `.input`, and `@theme` tokens in `src/index.css`.
+- 🧹 **ESLint + Prettier (flat)** – formatting-friendly lint rules.
+- 🐶 **Husky + lint-staged** – auto format/lint staged files on commit.
+- 🧭 **Path alias** – `@` → `src` for clean imports.
+- 📦 **Constants pattern** – `src/constants/index.ts` for app config.
+- 🧑‍💻 **VS Code workspace settings** – format on save + ESLint fixes.
+- 📄 **.gitattributes** (optional) – normalize line endings.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ⚡ Quick start
+```bash
+npm i
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔎 Snippets
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**vite.config.ts**
+```ts
+plugins: [react(), 
+    tailwindcss()],
 ```
+
+**src/index.css**
+```css
+@import "tailwindcss";
+/* tokens & utilities live here (e.g., @theme, .max-container, .input) */
+```
+
+**package.json**
+```jsonc
+},
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier -w"
+    ],
+    "*.{css,md,json}": [
+      "prettier -w"
+    ]
+  }
+```
+
+**.husky/pre-commit**
+```sh
+npx lint-staged
+```
+
+**.vscode/settings.json**
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": "explicit" }
+}
+```
+
+**eslint.config.js**
+- Flat config using `@eslint/js`, `typescript-eslint`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, and `eslint-config-prettier` to avoid formatting conflicts.
+
+## 📁 Condensed Project Layout
+```
+src/ (components, assets, constants, index.css, main.tsx, App.tsx)
+.vscode/ (settings.json)
+.husky/ (pre-commit)
+eslint.config.js
+vite.config.ts
+tsconfig.json
+.prettierrc / .prettierignore
+```
+
+## 📝 License
+MIT
