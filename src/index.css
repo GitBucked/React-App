@@ -1,15 +1,8 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Palanquin:wght@400;500;600;700&display=swap');
-
-@theme {
-  --font-montserrat: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-  --font-palanquin: 'Palanquin', ui-sans-serif, system-ui, sans-serif;
-
-  --color-slate-gray: #708090;
-
-  --container-max: 1440px;
-}
 
 * {
   margin: 0;
